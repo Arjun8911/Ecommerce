@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./component/layout/Header";
-import ProductList from "./component/ProductList";
+import ProductList from "./pages/ProductList";
 function App() {
   return (
     <BrowserRouter>

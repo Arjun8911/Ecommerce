@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$primary-color:#101010;
+$primary-light-color:#262626;
+$gray-color:#f6f6f6;
+$primary-color-text:#fff;
+$success-color:#009688;
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: $primary-color;
+}
+.text-primary
+{
+    color: $primary-color !important;
+}
+.text-success
+{
+    color: $success-color !important;
+}
+
+h2
+{
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+h5
+{
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.12rem;
+}
+.header
+{
+    background-color: $primary-light-color !important;
+}
+.container
+{
+   max-width: 1200px;
+}
+
+
+.btntabs
+{
+    .btn 
+    {
+        margin-right: 15px;
+        &:last-child
+        {
+            margin-right: 0;
+        }
+    }
+}
+.btn 
+    {
+        border-radius: 25px;
+        font-weight: 600;
+        border: 1px solid $primary-color;
+        background-color: transparent !important;
+        color: $primary-color !important;
+        outline: none !important;
+        box-shadow: none !important;
+        padding: 6px 20px;
+        font-size: .9rem;
+       
+        &.active, &:hover
+        {
+            background-color: $primary-color !important;
+            color: $primary-color-text !important;
+            border-color: $primary-color !important;
+        }
+        &.btn-small
+        {
+            font-size: .8rem;
+        }
+    }
+
+.product-card
+{
+    display: flex;
+    flex-direction: column;
+    .discount
+    {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        width: 60px;
+        height: 22px;
+        border-radius: 6px;
+        font-weight: 600;
+        color: #fff;
+        background-color: $success-color;
+        font-size: .85rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .product-card-img
+    {
+        height: 280px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $gray-color;
+        border-radius: 6px;
+        position: relative;
+        img 
+        {
+            max-width: 80%;
+            max-height: 80%;
+        }
+    }
+    .product-card-body
+    {
+        .product-card-info
+        {
+            display: flex;
+            .title
+            {
+                flex: 1;
+            }
+            .price
+            {
+                font-size: 1.12rem;
+                font-weight: 600;
+            }
+        }
+    }
+}
