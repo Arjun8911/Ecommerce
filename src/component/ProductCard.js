@@ -1,13 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FiStar } from "react-icons/fi";
-const ShipingCart = [];
-const GetCartItem = JSON.parse(localStorage.getItem("ShipingCart"));
+let ShipingCart = [];
+let GetCartItem = JSON.parse(localStorage.getItem("ShipingCart"));
 export default function ProductCard(props) {
-  const handleCart = (e) => {
-    ShipingCart.push(e);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleCart = (e, value) => {
+    setIsActive((e) => !e);
+    ShipingCart = JSON.parse(localStorage.getItem("ShipingCart")) || [];
+    ShipingCart.push(value);
     localStorage.setItem("ShipingCart", JSON.stringify(ShipingCart));
   };
-  useEffect(() => {}, []);
+  useEffect(() => {}, [ShipingCart]);
   return (
     <div className="product-card">
       <div className="product-card-img">
@@ -30,13 +34,23 @@ export default function ProductCard(props) {
           </span>
         </div>
         <div className="product-card-action mt-4">
-          <button
-            type="button"
-            onClick={() => handleCart(props.id)}
-            className="btn btn-outline-primary btn-small"
-          >
-            Add to Cart
-          </button>
+          {isActive || (GetCartItem ? GetCartItem : []).includes(props.id) ? (
+            <button
+              type="button"
+              disabled
+              className="btn btn-outline-primary btn-small active"
+            >
+              Added
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={(e) => handleCart(e, props.id)}
+              className="btn btn-outline-primary btn-small"
+            >
+              Add to Cart
+            </button>
+          )}
         </div>
       </div>
     </div>

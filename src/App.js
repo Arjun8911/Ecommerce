@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./component/layout/Header";
 import ProductList from "./pages/ProductList";
+import CartItemList from "./pages/CartItemList";
 import { createContext, useState } from "react";
 
 export const GlobalData = createContext();
@@ -19,6 +20,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<ProductList />} />
+          <Route path="MyCart" element={<CartItemList />} />
         </Routes>
       </GlobalData.Provider>
     </BrowserRouter>

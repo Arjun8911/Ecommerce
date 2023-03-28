@@ -11,15 +11,15 @@ export default function Header() {
   return (
     <Navbar bg="light" className="header py-4" variant="light">
       <Container>
-        <Navbar.Brand
-          href="#"
-          className="fw-medium text-white d-flex align-items-center"
+        <Link
+          to="/"
+          className="fw-medium text-white d-flex align-items-center navbar-brand"
         >
           <FiShoppingBag />
           &nbsp;&nbsp;ShopingCart
-        </Navbar.Brand>
+        </Link>
         <Nav className="ms-auto">
-          <Link className="text-white position-relative" to="/">
+          <Link className="text-white position-relative" to="MyCart">
             <FiShoppingCart className="fs-4" />
             <span className="text-white badgeCart">{GetCartItem?.length}</span>
           </Link>
