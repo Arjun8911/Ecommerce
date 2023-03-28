@@ -1,52 +1,62 @@
 import Container from "react-bootstrap/Container";
-import LaptopData from "../services/LaptopApi";
-import MobileData from "../services/MobileApi";
+import ProductData from "../services/ProductApi";
 import { useEffect, useState } from "react";
-import Category from "../component/CategoryTabs";
 import ProductCard from "../component/ProductCard";
-import CategoryData from "../services/CategoryApi";
+const GetCartItem = JSON.parse(localStorage.getItem("ShipingCart"));
 export default function ProductList() {
-  const [laptop, setLaptop] = useState(LaptopData);
-  //const [mobile, setMobile] = useState(LaptopData);
-  const [category, setCategory] = useState(CategoryData);
-
-  useEffect(() => {}, [laptop]);
+  const [product, setProduct] = useState(ProductData);
+  const CartProducts = product.filter((e) =>
+    (GetCartItem ? GetCartItem : []).includes(e.id)
+  );
+  useEffect(() => {}, [product]);
 
   return (
-    <Container className="mt-5 mb-5">
-      <div className="row">
-        <div className="col-md-8">
-          <h2>Choose what you want to buy</h2>
-        </div>
-        <div className="col-md-4">
-          <div className="btntabs text-end">
-            {category.map((item, index) => (
-              <button
-                type="button"
-                key={index}
-                className="btn btn-outline-primary"
-              >
-                {item.title}
-              </button>
-            ))}
+    <>
+      <Container className="mt-5 mb-5">
+        <div className="row">
+          <div className="col-md-12">
+            <h2>Choose what you want to buy</h2>
           </div>
         </div>
-      </div>
 
-      <div className="row">
-        {laptop.map((laptop, index) => (
-          <div className="col-md-3 mt-5" key={index}>
-            <ProductCard
-              thumbnail={laptop.thumbnail}
-              title={laptop.title}
-              price={laptop.price}
-              discount={laptop.discountPercentage}
-              description={laptop.description}
-              rating={laptop.rating}
-            />
+        <div className="row">
+          {product.map((product, index) => (
+            <div className="col-md-3 mt-5" key={index}>
+              <ProductCard
+                thumbnail={product.thumbnail}
+                title={product.title}
+                price={product.price}
+                discount={product.discountPercentage}
+                description={product.description}
+                rating={product.rating}
+                id={product.id}
+              />
+            </div>
+          ))}
+        </div>
+      </Container>
+      <Container className="mt-5 mb-5">
+        <div className="row">
+          <div className="col-md-12">
+            <h2>Cart Items</h2>
           </div>
-        ))}
-      </div>
-    </Container>
+        </div>
+        <div className="row">
+          {CartProducts.map((product, index) => (
+            <div className="col-md-3 mt-5" key={index}>
+              <ProductCard
+                thumbnail={product.thumbnail}
+                title={product.title}
+                price={product.price}
+                discount={product.discountPercentage}
+                description={product.description}
+                rating={product.rating}
+                id={product.id}
+              />
+            </div>
+          ))}
+        </div>
+      </Container>
+    </>
   );
 }
