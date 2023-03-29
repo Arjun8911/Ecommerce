@@ -2,16 +2,19 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./component/layout/Header";
 import ProductList from "./pages/ProductList";
 import CartItemList from "./pages/CartItemList";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const GlobalData = createContext();
 
 function App() {
   const [cart, setCart] = useState(0);
-  const [cartItem, setCartItem] = useState([""]);
+  const [cartItem, setCartItem] = useState([]);
+  console.log(cartItem);
   const AddCart = (data) => {
-    setCartItem(data);
+    console.log(data, "woking");
+    setCartItem(data || []);
   };
+  useEffect(() => {}, [cartItem]);
   return (
     <BrowserRouter>
       <GlobalData.Provider

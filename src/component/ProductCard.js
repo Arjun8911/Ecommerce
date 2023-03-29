@@ -1,17 +1,24 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FiStar } from "react-icons/fi";
+import { GlobalData } from "../App";
+
 let ShipingCart = [];
 let GetCartItem = JSON.parse(localStorage.getItem("ShipingCart"));
+
 export default function ProductCard(props) {
   const [isActive, setIsActive] = useState(false);
+  const { AddCart, cartItem } = useContext(GlobalData);
 
-  const handleCart = (e, value) => {
+  const handleCart = (id) => {
     setIsActive((e) => !e);
     ShipingCart = JSON.parse(localStorage.getItem("ShipingCart")) || [];
-    ShipingCart.push(value);
+    ShipingCart.push(id);
+    AddCart();
     localStorage.setItem("ShipingCart", JSON.stringify(ShipingCart));
   };
-  useEffect(() => {}, [ShipingCart]);
+  useEffect(() => {
+    AddCart(GetCartItem);
+  }, [ShipingCart]);
   return (
     <div className="product-card">
       <div className="product-card-img">
@@ -45,7 +52,7 @@ export default function ProductCard(props) {
           ) : (
             <button
               type="button"
-              onClick={(e) => handleCart(e, props.id)}
+              onClick={() => handleCart(props.id)}
               className="btn btn-outline-primary btn-small"
             >
               Add to Cart
