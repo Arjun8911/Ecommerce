@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
 import ProductData from "../services/ProductApi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductCard from "../component/ProductCard";
 export default function ProductList() {
   const [product, setProduct] = useState(ProductData);

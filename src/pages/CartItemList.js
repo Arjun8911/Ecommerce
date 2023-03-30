@@ -4,15 +4,17 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalData } from "../App";
 import { FiTrash2 } from "react-icons/fi";
 export default function CartItemList() {
-  const [product, setProduct] = useState(ProductData);
+  const [product] = useState(ProductData);
   const { cartItem, setCartItem } = useContext(GlobalData);
   const CartProducts = product.filter((e) =>
     (cartItem ? cartItem : []).includes(e.id)
   );
   const handleRemoveItem = (id) => {
-    let index = cartItem.indexOf(id);
+    const index = cartItem.indexOf(id);
     if (index > -1) {
-      setCartItem(cartItem.splice(index, 1));
+      let cartItemAll = cartItem;
+      cartItemAll.splice(index, 1);
+      setCartItem([...cartItemAll]);
     }
   };
   useEffect(() => {}, [product]);

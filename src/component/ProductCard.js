@@ -3,11 +3,8 @@ import { FiStar } from "react-icons/fi";
 import { GlobalData } from "../App";
 
 let CartStorage = [];
-let GetCartItem = JSON.parse(localStorage.getItem("CartStorage"));
-
 export default function ProductCard(props) {
   const { cartItem, setCartItem } = useContext(GlobalData);
-
   const handleCart = (id) => {
     CartStorage = JSON.parse(localStorage.getItem("CartStorage")) || [];
     CartStorage.push(id);
