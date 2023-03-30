@@ -2,11 +2,8 @@ import Container from "react-bootstrap/Container";
 import ProductData from "../services/ProductApi";
 import { useEffect, useState } from "react";
 import ProductCard from "../component/ProductCard";
-const GetCartItem = JSON.parse(localStorage.getItem("ShipingCart"));
 export default function ProductList() {
   const [product, setProduct] = useState(ProductData);
-  useEffect(() => {}, [product]);
-
   return (
     <>
       <Container className="mt-5 mb-5">

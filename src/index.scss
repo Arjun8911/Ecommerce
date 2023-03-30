@@ -23,7 +23,10 @@ html, body
 {
     color: $success-color !important;
 }
-
+.bg-success 
+{
+    background-color: $success-color !important;
+}
 h2
 {
     margin: 0;
@@ -35,6 +38,10 @@ h5
     margin: 0;
     font-weight: 600;
     font-size: 1.12rem;
+}
+.cursor
+{
+    cursor: pointer;
 }
 .header
 {
@@ -59,7 +66,51 @@ h5
 {
    max-width: 1200px;
 }
-
+.table-img
+{
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f6f6;
+    border-radius: 6px;
+    position: relative;
+    img 
+    {
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+.table 
+{
+    border-color: $primary-light-color;
+    thead 
+    {
+        tr 
+        {
+            th 
+            {
+                padding: 8px 20px;
+                background-color: $primary-light-color;
+                color: $primary-color-text;
+                border-color: $primary-color;
+            }
+        }
+    }
+    tbody 
+    {
+        tr 
+        {
+            border-color: $primary-light-color;
+            td 
+            {
+                padding: 12px 20px;
+                border-color: $primary-light-color;
+            }
+        }
+    }
+}
 
 .btntabs
 {

@@ -2,23 +2,19 @@ import { useContext, useEffect, useState } from "react";
 import { FiStar } from "react-icons/fi";
 import { GlobalData } from "../App";
 
-let ShipingCart = [];
-let GetCartItem = JSON.parse(localStorage.getItem("ShipingCart"));
+let CartStorage = [];
+let GetCartItem = JSON.parse(localStorage.getItem("CartStorage"));
 
 export default function ProductCard(props) {
-  const [isActive, setIsActive] = useState(false);
-  const { AddCart, cartItem } = useContext(GlobalData);
+  const { cartItem, setCartItem } = useContext(GlobalData);
 
   const handleCart = (id) => {
-    setIsActive((e) => !e);
-    ShipingCart = JSON.parse(localStorage.getItem("ShipingCart")) || [];
-    ShipingCart.push(id);
-    AddCart();
-    localStorage.setItem("ShipingCart", JSON.stringify(ShipingCart));
+    CartStorage = JSON.parse(localStorage.getItem("CartStorage")) || [];
+    CartStorage.push(id);
+    setCartItem([...CartStorage]);
+    localStorage.setItem("CartStorage", JSON.stringify(CartStorage));
   };
-  useEffect(() => {
-    AddCart(GetCartItem);
-  }, [ShipingCart]);
+  useEffect(() => {}, [CartStorage]);
   return (
     <div className="product-card">
       <div className="product-card-img">
@@ -41,7 +37,7 @@ export default function ProductCard(props) {
           </span>
         </div>
         <div className="product-card-action mt-4">
-          {isActive || (GetCartItem ? GetCartItem : []).includes(props.id) ? (
+          {(cartItem ? cartItem : []).includes(props.id) ? (
             <button
               type="button"
               disabled
