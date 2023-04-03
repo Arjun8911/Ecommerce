@@ -1,14 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  color: #101010;
+  color: #121212;
 }
 
 .text-primary {
-  color: #101010 !important;
+  color: #121212 !important;
+}
+
+.bg-primary {
+  background-color: #121212 !important;
 }
 
 .text-success {
@@ -39,6 +44,67 @@ h5 {
   background-color: #262626 !important;
 }
 
+.nav-search {
+  margin-left: 40px;
+  width: 400px;
+  position: relative;
+}
+
+.nav-search .search-icon {
+  position: absolute;
+  color: #ddd;
+  font-size: 20px;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.nav-search .form-control {
+  border-radius: 30px;
+  min-height: 40px;
+  border: 0 !important;
+  background-color: #121212 !important;
+  color: #fff;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  outline: 0 !important;
+  padding-left: 50px;
+  width: 100%;
+}
+
+.category-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.category-list .category-list-item {
+  margin-right: 70px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+}
+
+.category-list .category-list-item:last-child {
+  margin-right: 0;
+}
+
+.category-list .category-list-item .category-list-item-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
 .badgeCart {
   position: absolute;
   top: -15px;
@@ -62,6 +128,10 @@ h5 {
 
 .container {
   max-width: 1200px;
+}
+
+.section-block {
+  padding: 60px 0;
 }
 
 .table-img {
@@ -94,7 +164,7 @@ h5 {
   padding: 8px 20px;
   background-color: #262626;
   color: #fff;
-  border-color: #101010;
+  border-color: #121212;
 }
 
 .table tbody tr {
@@ -117,9 +187,9 @@ h5 {
 .btn {
   border-radius: 25px;
   font-weight: 600;
-  border: 1px solid #101010;
+  border: 1px solid #121212;
   background-color: transparent !important;
-  color: #101010 !important;
+  color: #121212 !important;
   outline: none !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
@@ -128,9 +198,9 @@ h5 {
 }
 
 .btn.active, .btn:hover {
-  background-color: #101010 !important;
+  background-color: #121212 !important;
   color: #fff !important;
-  border-color: #101010 !important;
+  border-color: #121212 !important;
 }
 
 .btn.btn-small {
@@ -170,7 +240,7 @@ h5 {
 }
 
 .product-card .product-card-img {
-  height: 280px;
+  height: 300px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -181,8 +251,7 @@ h5 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #f6f6f6;
-  border-radius: 6px;
+  border: 1px solid #121212;
   position: relative;
 }
 
@@ -198,13 +267,53 @@ h5 {
 }
 
 .product-card .product-card-body .product-card-info .title {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
 }
 
-.product-card .product-card-body .product-card-info .price {
+.product-card .product-card-body .product-card-action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-card .product-card-body .product-card-action .product-card-price .price {
   font-size: 1.12rem;
   font-weight: 600;
+}
+
+.swiper {
+  padding-bottom: 80px !important;
+}
+
+.swiper .swiper-button-prev {
+  left: 50%;
+  margin-left: -35px;
+  bottom: 0;
+  top: auto;
+}
+
+.swiper .swiper-button-prev::after {
+  color: #121212 !important;
+}
+
+.swiper .swiper-button-next {
+  right: 50%;
+  margin-right: -35px;
+  bottom: 0;
+  top: auto;
+}
+
+.swiper .swiper-button-next::after {
+  color: #121212 !important;
 }
 /*# sourceMappingURL=index.css.map */
