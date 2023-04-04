@@ -13,6 +13,7 @@ export default function Cart() {
       let cartItemAll = cartItem;
       cartItemAll.splice(index, 1);
       setCartItem([...cartItemAll]);
+      localStorage.setItem("CartStorage", JSON.stringify(cartItemAll));
     }
   };
 
@@ -39,7 +40,6 @@ export default function Cart() {
                   <thead>
                     <tr>
                       <th colSpan={2}>Product Information</th>
-                      <th>Discount</th>
                       <th>Price</th>
                       <th>Action</th>
                     </tr>
@@ -55,11 +55,7 @@ export default function Cart() {
                         <td>
                           <h5 className="fw-semibold mb-1">{item.title}</h5>
                         </td>
-                        <td>
-                          <span className="badge bg-success">
-                            {item.rating.rate}
-                          </span>
-                        </td>
+
                         <td className="fw-semibold">${item.price}</td>
                         <td>
                           <span
@@ -74,7 +70,6 @@ export default function Cart() {
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td></td>
                       <td></td>
                       <td className="text-end">Total Discounted Amount</td>
                       <td></td>

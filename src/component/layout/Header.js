@@ -26,7 +26,7 @@ export default function Header() {
           />
         </div>
         <Nav className="ms-auto">
-          <Link className="text-white position-relative" to="MyCart">
+          <Link className="text-white position-relative" to="cart">
             <FiShoppingCart className="fs-4" />
             {cartItem ? (
               <span className="text-white badgeCart">{cartItem.length}</span>
