@@ -32,7 +32,7 @@ export default function Products() {
               <div className="border-bottom">
                 <h5 className="mb-4">Choose Category</h5>
                 {category.map((item, index) => (
-                  <div className="form-check mb-3 text-capitalize" key={index}>
+                  <div className="form-check mb-4 text-capitalize" key={index}>
                     <input
                       className="form-check-input"
                       type="radio"

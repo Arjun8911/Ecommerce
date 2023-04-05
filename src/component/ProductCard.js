@@ -23,7 +23,7 @@ export default function ProductCard(props) {
           <h5 className="title">{props.title}</h5>
         </div>
 
-        <div className="product-card-des mt-1">
+        <div className="product-card-des mt-2">
           <span className="small text-success fw-bold d-flex align-items-center">
             <FiStar className="fs-6" />
             &nbsp;{props.rating.rate} &nbsp;

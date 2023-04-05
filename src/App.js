@@ -8,7 +8,6 @@ export const GlobalData = createContext();
 let GetCartItem = JSON.parse(localStorage.getItem("CartStorage"));
 function App() {
   const [cartItem, setCartItem] = useState(() => GetCartItem || []);
-  console.log(cartItem);
   useEffect(() => {}, [cartItem]);
   return (
     <BrowserRouter>

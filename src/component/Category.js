@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 export default function Category() {
   const [category, setCategory] = useState([]);
 
@@ -13,6 +13,14 @@ export default function Category() {
     <section className="bg-primary">
       <div className="container">
         <div className="category-list">
+          <div className="category-list-item">
+            <Link
+              className="category-list-item-title text-white text-decoration-none"
+              to="products"
+            >
+              Start Shoping
+            </Link>
+          </div>
           {category.map((item, index) => (
             <div className="category-list-item" key={index}>
               <span className="category-list-item-title text-white">
