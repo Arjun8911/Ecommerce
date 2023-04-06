@@ -44,6 +44,11 @@ h5 {
   background-color: #262626 !important;
 }
 
+.hero_banner {
+  height: 300px;
+  background-color: #def1f0;
+}
+
 .nav-search {
   margin-left: 40px;
   width: 400px;
@@ -207,6 +212,14 @@ h5 {
   font-size: .8rem;
 }
 
+.btn.form-block-btn {
+  border-radius: 0;
+  min-height: 50px;
+  min-width: 180px;
+  background-color: #121212 !important;
+  color: #fff !important;
+}
+
 .product-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -315,5 +328,16 @@ h5 {
 
 .swiper .swiper-button-next::after {
   color: #121212 !important;
+}
+
+.form-block-control.form-control {
+  border-radius: 0 !important;
+  background-color: #fff !important;
+  outline: none !important;
+  min-height: 50px;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border-color: #121212;
+  color: #121212;
 }
 /*# sourceMappingURL=index.css.map */

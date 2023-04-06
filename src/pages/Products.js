@@ -8,7 +8,6 @@ export default function Products() {
     if (checkedItem == "") {
     }
   };
-
   useEffect(() => {
     GetProducts();
     fetch("https://fakestoreapi.com/products")
@@ -16,7 +15,6 @@ export default function Products() {
       .then((data) => setProduct(data))
       .catch((err) => console.log(err));
   }, []);
-
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())

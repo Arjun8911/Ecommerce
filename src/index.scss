@@ -5,8 +5,10 @@ $primary-light-color: #262626;
 $gray-color: #f6f6f6;
 $primary-color-text: #fff;
 $success-color: #009688;
-$accent-color: #FF5722;
+$accent-color: #009688;
+$accent-light-color: #def1f0;
 $divider-color: #b6b6b6;
+$danger-color:#FF5722;
 
 html,
 body {
@@ -52,7 +54,11 @@ h5 {
 .header {
     background-color: $primary-light-color !important;
 }
-
+.hero_banner
+{
+    height: 300px;
+    background-color: $accent-light-color;
+}
 .nav-search {
     margin-left: 40px;
     width: 400px;
@@ -200,6 +206,14 @@ h5 {
     &.btn-small {
         font-size: .8rem;
     }
+    &.form-block-btn
+    {
+        border-radius: 0;
+        min-height: 50px;
+        min-width: 180px;
+        background-color: $primary-color !important;
+        color: $primary-color-text !important;
+    }
 }
 
 .product-card {
@@ -292,5 +306,19 @@ h5 {
         &::after {
             color: $primary-color !important;
         }
+    }
+}
+
+.form-block-control
+{
+    &.form-control
+    {
+        border-radius: 0 !important;
+        background-color: #fff !important;
+        outline: none !important;
+        min-height: 50px;
+        box-shadow: none !important;
+        border-color: $primary-color;
+        color: $primary-color;
     }
 }

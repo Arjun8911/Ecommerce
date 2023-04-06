@@ -4,6 +4,7 @@ import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import { createContext, useEffect, useState } from "react";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 export const GlobalData = createContext();
 let GetCartItem = JSON.parse(localStorage.getItem("CartStorage"));
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="products" element={<Products />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="login" element={<Login />} />
         </Routes>
       </GlobalData.Provider>
     </BrowserRouter>
