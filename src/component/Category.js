@@ -22,11 +22,15 @@ export default function Category() {
             </Link>
           </div>
           {category.map((item, index) => (
-            <div className="category-list-item" key={index}>
+            <Link
+              to={`products/${item}`}
+              className="category-list-item text-decoration-none"
+              key={index}
+            >
               <span className="category-list-item-title text-white">
                 {item}
               </span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,26 +1,37 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../component/ProductCard";
+import { useParams } from "react-router-dom";
 export default function Products() {
+  const [checkedItem, setCheckedItem] = useState("");
+  const { categorySlug } = useParams();
   const [product, setProduct] = useState([]);
   const [category, setCategory] = useState([]);
-  const [checkedItem, setCheckedItem] = useState("");
+
   const GetProducts = () => {
-    if (checkedItem == "") {
+    if (categorySlug != undefined) {
+      fetch(`https://fakestoreapi.com/products/category/${categorySlug}`)
+        .then((res) => res.json())
+        .then((data) => setProduct(data))
+        .catch((err) => console.log(err));
+    } else {
+      fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((data) => setProduct(data))
+        .catch((err) => console.log(err));
     }
   };
-  useEffect(() => {
-    GetProducts();
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => setProduct(data))
-      .catch((err) => console.log(err));
-  }, []);
-  useEffect(() => {
+
+  const GetCategories = () => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((data) => setCategory(data))
       .catch((err) => console.log(err));
-  }, []);
+  };
+
+  useEffect(() => {
+    GetProducts();
+    GetCategories();
+  }, [checkedItem]);
   return (
     <>
       <section className="mt-5 mb-5">
@@ -36,7 +47,8 @@ export default function Products() {
                       type="radio"
                       name="category"
                       value={item}
-                      id={`check${index}`}
+                      id={item}
+                      defaultChecked={categorySlug == item ? true : false}
                       onChange={(e) => setCheckedItem(e.target.value)}
                     />
                     <label className="form-check-label" for={`check${index}`}>
