@@ -173,6 +173,17 @@ h5 {
             }
         }
     }
+    tfoot 
+    {
+        tr {
+            border-color: $primary-light-color;
+
+            td {
+                padding: 12px 20px;
+                border-color: $primary-light-color;
+            }
+        }
+    }
 }
 
 .btntabs {
@@ -205,6 +216,11 @@ h5 {
 
     &.btn-small {
         font-size: .8rem;
+    }
+    &.btn-lg
+    {
+        font-size: 1.12rem;
+        padding: 10px 20px;
     }
     &.form-block-btn
     {

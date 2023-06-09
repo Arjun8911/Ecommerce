@@ -6,7 +6,7 @@ export default function Products() {
   const { categorySlug } = useParams();
   const [product, setProduct] = useState([]);
   const [category, setCategory] = useState([]);
-
+  console.log(checkedItem);
   const GetProducts = () => {
     if (categorySlug != undefined) {
       fetch(`https://fakestoreapi.com/products/category/${categorySlug}`)
@@ -60,8 +60,15 @@ export default function Products() {
             </div>
             <div className="col-md-9 ps-4">
               <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-8">
                   <h2>What you want to buy</h2>
+                </div>
+                <div className="col-md-4">
+                  <select className="form-control form-select">
+                    <option>Popularity</option>
+                    <option>Price Low to High</option>
+                    <option>Price High to Low</option>
+                  </select>
                 </div>
               </div>
               <div className="row">

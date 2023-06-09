@@ -18,7 +18,7 @@ export default function Cart() {
   };
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=5")
+    fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => setProduct(data))
       .catch((err) => console.log(err));
@@ -72,11 +72,22 @@ export default function Cart() {
                     <tr>
                       <td></td>
                       <td className="text-end">Total Discounted Amount</td>
-                      <td></td>
+                      <td className="fw-semibold">
+                        $
+                        {CartProducts.reduce(
+                          (initial, item) => initial + item.price,
+                          0
+                        )}
+                      </td>
                       <td></td>
                     </tr>
                   </tfoot>
                 </table>
+              </div>
+              <div className="mt-4 text-end">
+                <button className="btn btn-primary btn-lg">
+                  Proceed to Checkout
+                </button>
               </div>
             </div>
           </div>

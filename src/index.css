@@ -181,6 +181,15 @@ h5 {
   border-color: #262626;
 }
 
+.table tfoot tr {
+  border-color: #262626;
+}
+
+.table tfoot tr td {
+  padding: 12px 20px;
+  border-color: #262626;
+}
+
 .btntabs .btn {
   margin-right: 15px;
 }
@@ -210,6 +219,11 @@ h5 {
 
 .btn.btn-small {
   font-size: .8rem;
+}
+
+.btn.btn-lg {
+  font-size: 1.12rem;
+  padding: 10px 20px;
 }
 
 .btn.form-block-btn {
