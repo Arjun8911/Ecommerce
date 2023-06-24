@@ -2,7 +2,7 @@
 
 $primary-color: #121212;
 $primary-light-color: #262626;
-$gray-color: #f6f6f6;
+$gray-color: #f2f2f2;
 $primary-color-text: #fff;
 $success-color: #009688;
 $accent-color: #009688;
@@ -22,7 +22,10 @@ body {
 .text-primary {
     color: $primary-color !important;
 }
-
+.bg-gray
+{
+    background-color: $gray-color !important;
+}
 .bg-primary {
     background-color: $primary-color !important;
 }
@@ -50,13 +53,20 @@ h5 {
 .cursor {
     cursor: pointer;
 }
+.radius
+{
+    border-radius: 5px;
+}
 
 .header {
     background-color: $primary-light-color !important;
+    
 }
 .hero_banner
 {
-    height: 300px;
+    height: 220px;
+    display: flex;
+    align-items: center;
     background-color: $accent-light-color;
 }
 .nav-search {
@@ -74,7 +84,6 @@ h5 {
     }
 
     .form-control {
-        border-radius: 30px;
         min-height: 40px;
         border: 0 !important;
         background-color: $primary-color !important;
@@ -195,9 +204,19 @@ h5 {
         }
     }
 }
+.form-control
+    {
+        border-radius: 5px !important;
+        background-color: $gray-color !important;
+        outline: none !important;
+        min-height: 50px;
+        box-shadow: none !important;
+        border-color: $divider-color;
+        color: $primary-color;
+    }
 
 .btn {
-    border-radius: 25px;
+    @extend .radius;
     font-weight: 600;
     border: 1px solid $primary-color;
     background-color: transparent !important;
@@ -206,12 +225,18 @@ h5 {
     box-shadow: none !important;
     padding: 6px 20px;
     font-size: .9rem;
-
+    
     &.active,
     &:hover {
         background-color: $primary-color !important;
         color: $primary-color-text !important;
         border-color: $primary-color !important;
+    }
+    &.btn-primary
+    {
+        background-color: $accent-color !important;
+        border-color: $accent-color !important;
+        color: #fff !important;
     }
 
     &.btn-small {
@@ -224,11 +249,11 @@ h5 {
     }
     &.form-block-btn
     {
-        border-radius: 0;
         min-height: 50px;
         min-width: 180px;
         background-color: $primary-color !important;
         color: $primary-color-text !important;
+        border-color: $primary-color !important;
     }
 }
 
@@ -258,7 +283,9 @@ h5 {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid $primary-color;
+        border: 1px solid $divider-color;
+        @extend .radius;
+        // background-color: $gray-color;
         position: relative;
 
         img {
@@ -322,19 +349,5 @@ h5 {
         &::after {
             color: $primary-color !important;
         }
-    }
-}
-
-.form-block-control
-{
-    &.form-control
-    {
-        border-radius: 0 !important;
-        background-color: #fff !important;
-        outline: none !important;
-        min-height: 50px;
-        box-shadow: none !important;
-        border-color: $primary-color;
-        color: $primary-color;
     }
 }

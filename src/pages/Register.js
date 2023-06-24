@@ -1,32 +1,31 @@
 import { useState } from "react";
-import banner from "../media/images/banner.jpg";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const HandleLogin = () => {
-    if (username == "" || password == "") {
-      alert("Please Enter Your Account Details");
-      return false;
-    } else {
-      fetch("https://fakestoreapi.com/auth/login", {
-        method: "POST",
-        body: JSON.stringify({
-          username: username,
-          password: password,
-        }),
-      })
-        .then((res) => res.json())
-        .then((json) => alert(json))
-        .catch((err) => alert(err));
-    }
+  const HandleRegister = () => {
+    // if (username == "" || password == "") {
+    //   alert("Please Enter Your Account Details");
+    //   return false;
+    // } else {
+    //   fetch("https://fakestoreapi.com/auth/login", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       username: username,
+    //       password: password,
+    //     }),
+    //   })
+    //     .then((res) => res.json())
+    //     .then((json) => alert(json))
+    //     .catch((err) => alert(err));
+    // }
   };
   return (
     <>
       <section className="hero_banner">
         <div className="container">
-          <h1 className="hero_banner_title">Account Login</h1>
+          <h1 className="hero_banner_title">Create Your Account</h1>
         </div>
       </section>
 
@@ -34,7 +33,7 @@ const Login = () => {
         <div className="container">
           <div className="row mb-5">
             <div className="col-md-12">
-              <h2>Login with your account !</h2>
+              <h2>Register with us !</h2>
             </div>
           </div>
           <div className="row">
@@ -72,9 +71,9 @@ const Login = () => {
                       <button
                         type="button"
                         className="btn btn-primary form-block-btn"
-                        onClick={HandleLogin}
+                        onClick={HandleRegister}
                       >
-                        Log in
+                        Register
                       </button>
                     </div>
                   </div>
@@ -85,7 +84,7 @@ const Login = () => {
             <div className="col-md-5">
               <div className="row mb-4">
                 <div className="col-md-12">
-                  <h2>Don't have account !</h2>
+                  <h2>Already have account !</h2>
                   <p className="mt-3 col-8">
                     It is a long established fact that a reader will be
                     distracted by the readable content of a page when looking at
@@ -96,12 +95,12 @@ const Login = () => {
               <div className="row">
                 <div className="col-md-12">
                   <div className="mb-5">
-                    <Link to="/register">
+                    <Link to="/login">
                       <button
                         type="button"
                         className="btn btn-primary form-block-btn"
                       >
-                        Register Now
+                        Login
                       </button>
                     </Link>
                   </div>
@@ -115,4 +114,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

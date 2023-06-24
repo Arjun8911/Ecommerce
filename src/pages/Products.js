@@ -38,24 +38,29 @@ export default function Products() {
         <div className="container">
           <div className="row">
             <div className="col-md-3 pe-4 border-end">
-              <div className="border-bottom">
-                <h5 className="mb-4">Choose Category</h5>
-                {category.map((item, index) => (
-                  <div className="form-check mb-4 text-capitalize" key={index}>
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="category"
-                      value={item}
-                      id={item}
-                      defaultChecked={categorySlug == item ? true : false}
-                      onChange={(e) => setCheckedItem(e.target.value)}
-                    />
-                    <label className="form-check-label" for={`check${index}`}>
-                      {item}
-                    </label>
-                  </div>
-                ))}
+              <div className="px-3 bg-gray radius">
+                <div className="border-bottom pt-4 mb-4">
+                  <h5 className="mb-4">Choose Category</h5>
+                  {category.map((item, index) => (
+                    <div
+                      className="form-check mb-4 text-capitalize"
+                      key={index}
+                    >
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="category"
+                        value={item}
+                        id={item}
+                        defaultChecked={categorySlug == item ? true : false}
+                        onChange={(e) => setCheckedItem(e.target.value)}
+                      />
+                      <label className="form-check-label" for={`check${index}`}>
+                        {item}
+                      </label>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="col-md-9 ps-4">

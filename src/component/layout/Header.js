@@ -25,11 +25,25 @@ export default function Header() {
             placeholder="What are you looking for ?"
           />
         </div>
-        <Nav className="ms-auto">
-          <Link className="text-white position-relative" to="cart">
+        <Nav className="ms-auto align-items-center">
+          <Link
+            className="text-white position-relative btn btn-primary me-4"
+            to="/login"
+          >
+            Login/Register
+          </Link>
+          <Link className="text-white position-relative" to="/cart">
             <FiShoppingCart className="fs-4" />
             {cartItem ? (
-              <span className="text-white badgeCart">{cartItem.length}</span>
+              <>
+                {cartItem.length > 0 ? (
+                  <span className="text-white badgeCart">
+                    {cartItem.length}
+                  </span>
+                ) : (
+                  ""
+                )}
+              </>
             ) : (
               ""
             )}

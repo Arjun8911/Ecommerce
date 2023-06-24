@@ -1,1 +1,1 @@
-# ShopingCart
+# Ecommerce Platform In React Js
